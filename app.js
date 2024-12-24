@@ -15,6 +15,11 @@ app.get('/', (req, res) => {
   res.render('index'); // Render index.ejs
 });
 
+// Add default route so every other route will redirect to: https://pivotnode.net/
+app.get('*', (req, res) => {
+  res.redirect('https://pivotnode.net/');
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
